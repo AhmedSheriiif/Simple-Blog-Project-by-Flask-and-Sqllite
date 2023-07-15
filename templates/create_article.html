@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %} Create New Article {% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Create New Article</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% if show_alert %}
+                <div class="alert alert-success" role="alert">
+                    Article created successfully!
+                </div>
+            {% endif %}
+            <form action="{{ url_for('create_article') }}" method="post">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <textarea name="content" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ url_for('my_articles') }}" class="btn btn-secondary mt7-m">My Articles</a>
+            </form>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}
